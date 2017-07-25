@@ -6,7 +6,10 @@ lazy val commonSettings = Seq(
 )
 
 lazy val servingLib = project.in(file("serving_scala"))
-    .settings(commonSettings: _*)
+  .settings(commonSettings: _*)
+  .settings(
+    libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
+  )
 
 lazy val example = project.in(file("example"))
   .settings(commonSettings: _*)
